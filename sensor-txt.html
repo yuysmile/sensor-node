@@ -164,18 +164,37 @@
 			} else {
 				document.body.innerHTML = "What user agent u r using???";
 			};
+
+			//获取当前时间，格式YYYY-MM-DD
+		    function getNowFormatDate() {
+		        var date = new Date();
+		        var seperator1 = "-";
+		        var year = date.getFullYear();
+		        var month = date.getMonth() + 1;
+		        var strDate = date.getDate();
+		        if (month >= 1 && month <= 9) {
+		            month = "0" + month;
+		        }
+		        if (strDate >= 0 && strDate <= 9) {
+		            strDate = "0" + strDate;
+		        }
+		        var currentdate = year + seperator1 + month + seperator1 + strDate;
+		        return currentdate;
+		    }
 		</script>
 		<!-- 保存数据 -->
 		<script type="text/javascript">
-
 			function start() {
+				var startTime = getNowFormatDate()
 				var file = setInterval(function(){ 
-				var content = document.querySelector( '#content' );
-			        content.innerHTML = "方向传感器" + orientX + "加速度传感器" + accelerationX + "重力传感器" + GravityX + "陀螺仪传感器" + RotateX;
-				}, 500);
+					var content = document.querySelector( '#content' );
+				    content = "方向传感器" + orientX + "加速度传感器" + accelerationX + "重力传感器" + GravityX + "陀螺仪传感器" + RotateX;
+					}, 500);
+				})
 			}
 			
 			function stop() {
+				var endTime = getNowFormatDate()
 			 	clearInterval(file);
 			}
 		</script>
