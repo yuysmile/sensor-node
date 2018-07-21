@@ -40,8 +40,16 @@
 				margin-top: 20px;
 			}
 			.content {
-				visibility: hidden;
 				margin-top: 40px;
+				display: block;
+				width: 90%;
+				height: 600px;
+				border-radius: 5px;
+				border: 1px solid gray;
+				margin-bottom: 10px;
+				overflow: auto;
+				margin-left: 3%;
+				padding-left: 40px;
 			}
 
 		</style>
@@ -92,7 +100,9 @@
 			<p>扭转速度：<span id="Rgamma">0</span>度每秒</p>
 		</div>
 
-		<textarea class="form-control" rows="4" class="content" id="content">测试文本，你可以随便修改，完事后点保存。</textarea>
+		<div class="form-control" rows="4" class="content" id="content">
+			测试数据
+		</div>
 		
 		<!-- 数据获取 -->
 		<script type="text/javascript">
@@ -157,10 +167,17 @@
 		</script>
 		<!-- 保存数据 -->
 		<script type="text/javascript">
-			setInterval(function(){ 
+
+			function start() {
+				var file = setInterval(function(){ 
 				var content = document.querySelector( '#content' );
-		         content.innerHTML = "方向传感器" + orientX + "加速度传感器" + accelerationX + "重力传感器" + GravityX + "陀螺仪传感器" + RotateX;
-			}, 3000);
+			        content.innerHTML = "方向传感器" + orientX + "加速度传感器" + accelerationX + "重力传感器" + GravityX + "陀螺仪传感器" + RotateX;
+				}, 500);
+			}
+			
+			function stop() {
+			 	clearInterval(file);
+			}
 		</script>
 		<script type="text/javascript">
 			// void function(){
